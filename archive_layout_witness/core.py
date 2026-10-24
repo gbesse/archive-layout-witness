@@ -38,6 +38,10 @@ def run(data):
      if not(item.issym()or item.islnk()or item.isdir()or item.isfile()):rows[-1]['issues'].append('special_member')
   else:raise ValueError('format')
  except(zipfile.BadZipFile,tarfile.TarError,UnicodeError):raise ValueError('archive')from None
+ links={normalized(row['name'])for row in rows if row['kind']in('symlink','hardlink')}
+ for row in rows:
+  components=normalized(row['name']).split('/')
+  if any('/'.join(components[:i])in links for i in range(1,len(components))):row['issues'].append('member_below_link')
  groups={}
  for row in rows:groups.setdefault(row['portable_path'],[]).append(row['name'])
  collisions=[{'portable_path':k,'members':v}for k,v in sorted(groups.items())if len(v)>1]
