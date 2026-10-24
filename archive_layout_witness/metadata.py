@@ -1,0 +1,1 @@
+DESCRIPTION = {'fr': 'Auditer les chemins et collisions d’une archive sans l’extraire', 'en': 'Audit archive paths and collisions without extracting it', 'es': 'Auditar rutas y colisiones de un archivo sin extraerlo'}

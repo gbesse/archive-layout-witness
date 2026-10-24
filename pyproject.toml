@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "archive-layout-witness"
+version = "0.1.0a1"
+description = "FR: Auditer les chemins et collisions d’une archive sans l’extraire | EN: Audit archive paths and collisions without extracting it | ES: Auditar rutas y colisiones de un archivo sin extraerlo"
+requires-python = ">=3.11"
+license = "MIT"
+
+[project.scripts]
+archive-layout-witness = "archive_layout_witness.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["archive_layout_witness*"]
